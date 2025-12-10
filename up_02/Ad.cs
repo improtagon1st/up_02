@@ -25,6 +25,7 @@ namespace up_02
         public int CategoryId { get; set; }
         public int AdTypeId { get; set; }
         public int AdStatusId { get; set; }
+        public string ImagePath { get; set; }
     
         public virtual AdStatus AdStatus { get; set; }
         public virtual AdType AdType { get; set; }

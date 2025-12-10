@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Melnikov_DB_02Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Melnikov_DB_02Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Ad">
           <Key>
             <PropertyRef Name="AdId" />
@@ -20,6 +20,7 @@
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="AdTypeId" Type="int" Nullable="false" />
           <Property Name="AdStatusId" Type="int" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6013: Первичный ключ в таблице или представлении "Melnikov_DB_02.dbo.AdsRaw" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
@@ -63,20 +64,6 @@
           <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "Melnikov_DB_02.dbo.Sheet1$" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="Sheet1$">
-          <Property Name="user_login" Type="nvarchar" MaxLength="255" />
-          <Property Name="user_password" Type="nvarchar" MaxLength="255" />
-          <Property Name="ad_title" Type="nvarchar" MaxLength="255" />
-          <Property Name="ad_description" Type="nvarchar" MaxLength="255" />
-          <Property Name="ad_post_date" Type="nvarchar" MaxLength="255" />
-          <Property Name="city" Type="nvarchar" MaxLength="255" />
-          <Property Name="category" Type="nvarchar" MaxLength="255" />
-          <Property Name="ad_type" Type="nvarchar" MaxLength="255" />
-          <Property Name="ad_status" Type="nvarchar" MaxLength="255" />
-          <Property Name="price" Type="float" />
-        </EntityType>-->
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -216,8 +203,7 @@
             <End Role="Ad" EntitySet="Ad" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Melnikov_DB_02Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -241,6 +227,7 @@
           <NavigationProperty Name="Category" Relationship="Self.FK_Ad_Category" FromRole="Ad" ToRole="Category" />
           <NavigationProperty Name="City" Relationship="Self.FK_Ad_City" FromRole="Ad" ToRole="City" />
           <NavigationProperty Name="User" Relationship="Self.FK_Ad_User" FromRole="Ad" ToRole="User" />
+          <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AdStatus">
           <Key>
@@ -433,6 +420,7 @@
           <EntitySetMapping Name="Ad">
             <EntityTypeMapping TypeName="Melnikov_DB_02Model.Ad">
               <MappingFragment StoreEntitySet="Ad">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="AdId" ColumnName="AdId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

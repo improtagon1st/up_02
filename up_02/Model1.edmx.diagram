@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2d8ab4dd8440464f98d09ad0da157b04" Name="Diagram1" ZoomLevel="86">
+      <Diagram DiagramId="2d8ab4dd8440464f98d09ad0da157b04" Name="Diagram1" ZoomLevel="85">
         <EntityTypeShape EntityType="Melnikov_DB_02Model.Ad" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="Melnikov_DB_02Model.AdStatus" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Melnikov_DB_02Model.AdType" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />

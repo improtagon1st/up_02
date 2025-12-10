@@ -1,27 +1,69 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace up_02
 {
-    /// <summary>
-    /// Логика взаимодействия для LoginWindow.xaml
-    /// </summary>
     public partial class LoginWindow : Window
     {
+        private readonly Melnikov_DB_02Entities _db;
+
         public LoginWindow()
         {
             InitializeComponent();
+            _db = new Melnikov_DB_02Entities();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string login = LoginTextBox.Text.Trim();
+            string password = PasswordBox.Password;
+
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show(
+                    "Введите логин и пароль.",
+                    "Ошибка ввода",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                return;
+            }
+
+            try
+            {
+                // В БД пароль хранится как есть (без хэширования)
+                var user = _db.User
+                    .FirstOrDefault(u => u.Login == login && u.PasswordHash == password);
+
+                if (user == null)
+                {
+                    MessageBox.Show(
+                        "Неверный логин или пароль.",
+                        "Ошибка авторизации",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                    return;
+                }
+
+                // Авторизация успешна – открываем главное окно и передаём пользователя
+                MainWindow main = new MainWindow(user);
+                main.Show();
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Ошибка при обращении к базе данных:\n" + ex.Message,
+                    "Ошибка",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
