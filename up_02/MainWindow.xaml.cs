@@ -57,7 +57,7 @@ namespace up_02
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            // возвращаемся на окно авторизации
+            
             LoginWindow login = new LoginWindow();
             login.Show();
             this.Close();

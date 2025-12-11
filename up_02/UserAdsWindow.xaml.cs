@@ -111,7 +111,7 @@ namespace up_02
         }
         private void CompletedButton_Click(object sender, RoutedEventArgs e)
         {
-            // открываем окно завершённых объявлений пользователя
+            
             var wnd = new CompletedAdsWindow(_currentUser)
             {
                 Owner = this

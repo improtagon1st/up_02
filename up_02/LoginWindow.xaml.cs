@@ -31,7 +31,7 @@ namespace up_02
 
             try
             {
-                // В БД пароль хранится как есть (без хэширования)
+                
                 var user = _db.User
                     .FirstOrDefault(u => u.Login == login && u.PasswordHash == password);
 
