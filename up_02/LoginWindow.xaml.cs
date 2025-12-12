@@ -45,7 +45,7 @@ namespace up_02
                     return;
                 }
 
-                // Авторизация успешна – открываем главное окно и передаём пользователя
+                
                 MainWindow main = new MainWindow(user);
                 main.Show();
 

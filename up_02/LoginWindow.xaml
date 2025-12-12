@@ -16,7 +16,6 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Заголовок с логотипом -->
         <DockPanel Grid.Row="0" Margin="0 0 0 16">
             <Image Source="/Resources/logo.png"
                    Height="38"
