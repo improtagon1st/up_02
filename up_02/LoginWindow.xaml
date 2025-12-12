@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <DockPanel Grid.Row="0" Margin="0 0 0 16">
+        <DockPanel Grid.Row="0" Margin="0 0 0 15">
             <Image Source="/Resources/logo.png"
                    Height="38"
                    Margin="0 0 16 0"/>
