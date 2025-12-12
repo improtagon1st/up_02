@@ -54,7 +54,7 @@
                     Click="BackButton_Click"/>
         </StackPanel>
 
-        <!-- Таблица объявлений -->
+
         <DataGrid x:Name="UserAdsGrid"
                   Grid.Row="2"
                   AutoGenerateColumns="False"
