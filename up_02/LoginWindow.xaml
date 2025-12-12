@@ -19,7 +19,7 @@
         <DockPanel Grid.Row="0" Margin="0 0 0 15">
             <Image Source="/Resources/logo.png"
                    Height="38"
-                   Margin="0 0 16 0"/>
+                   Margin="0 0 15 0"/>
             <TextBlock Text="Вход в сервис частных объявлений"
                        VerticalAlignment="Center"
                        FontSize="18"
