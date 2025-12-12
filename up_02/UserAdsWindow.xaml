@@ -28,7 +28,7 @@
                        Foreground="#37474F"/>
         </DockPanel>
 
-        <!-- Кнопки -->
+       
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
                     Margin="0 0 0 16">
