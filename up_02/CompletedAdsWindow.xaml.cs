@@ -27,6 +27,7 @@ namespace up_02
                 var completedStatus = _db.AdStatus
                     .FirstOrDefault(s => s.Name == "Завершено");
 
+
                 if (completedStatus == null)
                 {
                     MessageBox.Show(
